@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ashu-python-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-app
+        image: ashutoshsarangi1995/genai-server-poc-ashu:2.9.0
+        ports:
+        - containerPort: 8000
+
+# Postman → External IP (LoadBalancer/NodePort) → Node → kube-proxy → Service → Pod → App
+
+# http://localhost:30080

@@ -1,0 +1,10 @@
+# test-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: debug-client
+spec:
+  containers:
+  - name: debugger
+    image: busybox:latest # A small image with basic network tools 
+    command: ["sh", "-c", "while true; do sleep 3600; done"] # Keep it running 

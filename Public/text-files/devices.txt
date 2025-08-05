@@ -1,0 +1,6 @@
+    HOSTNAME:IP:USERNAME:PASSWORD:CONFIG_FILE
+    CoreDevice:78.1.1.1:root:RPass67644@--:routing_protocols.cfg
+    CentralRouter:8.1.1.1:myadmin:67Jdhhdd-+:secure.txt
+    AccessSwitch1:78.1.2.2:admin:hPass67644@++:vlan.txt
+    Server1:10.0.0.1:admin:xsdHD3355:firewall.conf
+    Router1:90.0.0.1:u1:jpfajJdd67:commands_to_run.txt

@@ -1,0 +1,31 @@
+{
+  "name": "Mathematical Calculator MCP Setup",
+  "version": "1.0.0",
+  "servers": [
+    {
+      "name": "mathematical-calculator",
+      "description": "Mathematical operations and banking resources server",
+      "command": "python3",
+      "args": [
+        "./project_1_mcp_server.py"
+      ],
+      "cwd": "/Users/sarangia/Desktop/Master/Learning/Gen AI/MCP",
+      "env": {
+        "PYTHONPATH": "/Users/sarangia/Desktop/Master/Learning/Gen AI/MCP",
+        "DEBUG": "false"
+      },
+      "timeout": 30000,
+      "url": "http://localhost:5000",
+      "capabilities": {
+        "tools": ["add_numbers", "multiply_numbers", "divide_numbers"],
+        "resources": [
+          "greeting://{name}/{age}",
+          "get://users",
+          "account://{account_id}/statement",
+          "bank://branch/{branch_id}/info",
+          "bank://rates"
+        ]
+      }
+    }
+  ]
+}
