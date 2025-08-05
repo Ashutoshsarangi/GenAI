@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Human-in-the-Loop Approval</title>
+  <style>
+    #approval-box {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+    }
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Human-in-the-Loop Approval System</h1>
+  <button onclick="originalLLMCallWithPrompt()">Initiate the Original LLM call With Prompt</button>
+  <div id="approval-box">
+    <p id="approval-message"></p>
+    <button onclick="sendDecision('approved')">Approve</button>
+    <button onclick="sendDecision('rejected')">Reject</button>
+  </div>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:8000/ws/approval");
+    let currentRequestId = null;
+
+    socket.onopen = function(event) {
+      console.log("WebSocket connection opened successfully");
+    };
+
+    socket.onmessage = function(event) {
+      const message = event.data;
+      console.log("Received message:", message);
+      
+      // Extract request ID from message if present
+      const requestIdMatch = message.match(/Request ID: ([a-f0-9-]+)/);
+      if (requestIdMatch) {
+        currentRequestId = requestIdMatch[1];
+        console.log("Extracted request ID:", currentRequestId);
+      }
+      
+      document.getElementById("approval-message").textContent = message;
+      document.getElementById("approval-box").style.display = "block";
+    };
+
+    socket.onclose = function(event) {
+      console.log("WebSocket connection closed", event.code, event.reason);
+    };
+
+    socket.onerror = function(error) {
+      console.error("WebSocket error:", error);
+      alert("WebSocket connection failed. Make sure the server is running on localhost:8000");
+    };
+
+    function originalLLMCallWithPrompt() {      
+      fetch("http://localhost:8000/llm-response", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: "Default test prompt" })
+      }).then(response => response.json())
+        .then(data => {
+          console.log("LLM Response:", data);
+          alert(`LLM Response: ${data.response || data.message}`);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("Error occurred during LLM call");
+        });
+    }
+
+    function sendDecision(decision) {
+      const requestBody = { 
+        decision: decision,
+        request_id: currentRequestId 
+      };
+      
+      fetch("http://localhost:8000/approval-decision", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody)
+      }).then(response => response.json())
+        .then(data => {
+          console.log("Decision sent:", data);
+          document.getElementById("approval-box").style.display = "none";
+          currentRequestId = null;
+        })
+        .catch(error => {
+          console.error("Error sending decision:", error);
+        });
+    }
+  </script>
+</body>
+</html>
