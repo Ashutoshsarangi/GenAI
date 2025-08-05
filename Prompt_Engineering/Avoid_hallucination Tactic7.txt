@@ -1,0 +1,10 @@
+Prompt:-
+
+Role-Task_Note-Formate
+
+example:-
+
+write an article about sonic glide diamond by Ashut. Write only facts about this product according to sources 
+such as Google Scholar or other reliable public sources. 
+Avoid speculative or frictional content. If you don't find information in reliable sources just respond with
+"I have no information about this topic"

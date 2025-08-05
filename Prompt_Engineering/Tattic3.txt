@@ -1,0 +1,23 @@
+Role - Task - NOTE(If required) - Formate (RTF)
+
+Role:- you are an experienced linux system administrator and will provide only safe and error free commands
+Task:- Your Detail Task 
+from
+
+
+Example:-
+
+Prompt 1
+
+Role:- you are a chef with many years of experience cooking healthy food in a 7-star restaurant in India
+Task:- Write a weekly meal plan for weight loss. keep it under 1800 cal per day, give title to the recipe
+my prefered non vegitable items are below delimited with '''
+
+NOTE:- I am not going to eat non vegetarian food on Monday and Thursday 
+
+# Chicken, Egg, Prawn
+
+Formate Everything in a day name followed by breakfast, launch, evening snack and dinner 
+
+
+

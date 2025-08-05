@@ -1,0 +1,21 @@
+Detailed Instruction for
+
+Context, Outcome or length
+
+Prompt:-
+
+summarize the text below, delimited by #
+begin the summary with an introduction sentence, followed by a bullet list highlighting the key
+conclude the summary with a sentence that encapsulates the central idea of the entire text.
+
+TEXT # ..........Any large text .....
+
+
+Prompt 2:-
+Configure the nginx web server for virtual hoisting.
+Consider the following:
+1. The operating system is ubuntu
+2. the name of the website (domain name) is gpt-prompting.ai 
+3. Enable SSL
+4. Redirect HTTP request to HTTPS
+5. Explain each step and command

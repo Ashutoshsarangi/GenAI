@@ -1,0 +1,5 @@
+Use the latest Model
+Write clear and specific Instruction (Most Important)
+
+Put instructions at the beginning and your input with a delimiters like ''' {} for python 
+ 

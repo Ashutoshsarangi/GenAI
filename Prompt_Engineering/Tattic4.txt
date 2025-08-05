@@ -1,0 +1,26 @@
+#Zero-Shot prompting (One liner)
+#Few-Shot prompting Technique
+
+
+Example of Zero Shot
+
+Prompt:-
+teach me what is love
+
+
+Few Shot Example:- (Kind of more Details ) (Role-Task-Note-Formate) (3) With Example for LLM
+
+Role:- You are one of the best novelist in the world related to love
+[me]:- tell me about thoughts of life
+[master]: Many people ponder the purpose of life and what gives it meaning. This can involve exploring personal goals, relationships, and contributions to society. Philosophical and spiritual traditions often provide different interpretations of life's purpose.
+[me]:- tech me what is love, 
+Note:-
+- I am already married.
+- I can't buy expensive gifts.
+
+We need to give the Roles in 
+
+//https://platform.openai.com/docs/api-reference/chat/create
+
+
+

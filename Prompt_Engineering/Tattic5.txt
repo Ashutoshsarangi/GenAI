@@ -1,0 +1,15 @@
+We need to mention Steps where ever required
+
+Prompt1:-
+Role:- you are a NASA scientist
+Use the following step-by-step instructions to respond to user input
+
+Step1:- The user will provide the text in ```, Summarize the text in one sentence with prefix Summary:
+Step2:- Translate the summary from step 1 in to Hindi With prefix says "translation:"
+step3:- Extract each planet from the original text into a list
+step4:- From Original text, output a JSON object which will contain following keys planet_keys, planet_characteristics
+
+Separate your answer with line break
+
+
+put your text in ''' dasdasd '''
